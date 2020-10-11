@@ -15,6 +15,7 @@ ChatBot::ChatBot()
     _image = nullptr;
     _chatLogic = nullptr;
     _rootNode = nullptr;
+    std::cout << "got here: chatbot constructor w/out mem alloc" << std::endl;
 }
 
 // constructor WITH memory allocation
@@ -34,11 +35,16 @@ ChatBot::~ChatBot()
 {
     std::cout << "ChatBot Destructor" << std::endl;
 
+    std::cout << "got here: chatbot deconstructor, before _image is deleted: " << _image << std::endl;
+
+    //std::cout << _image << std::endl;
+
     // deallocate heap memory
     if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
     {
         delete _image;
         _image = NULL;
+        std::cout << "got here 3: chatbot deconstructor, image deleted" << std::endl;
     }
 }
 

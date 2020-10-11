@@ -1,0 +1,3 @@
+/home/parallels/OpenStreetMapUdacity/CppND-Memory-Management-Chatbot/build/CMakeFiles/rebuild_cache.dir
+/home/parallels/OpenStreetMapUdacity/CppND-Memory-Management-Chatbot/build/CMakeFiles/membot.dir
+/home/parallels/OpenStreetMapUdacity/CppND-Memory-Management-Chatbot/build/CMakeFiles/edit_cache.dir

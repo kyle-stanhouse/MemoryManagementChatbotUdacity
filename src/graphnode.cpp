@@ -1,6 +1,8 @@
 #include "graphedge.h"
 #include "graphnode.h"
 
+#include <iostream> //debug
+
 GraphNode::GraphNode(int id)
 {
     _id = id;
@@ -11,7 +13,10 @@ GraphNode::~GraphNode()
     //// STUDENT CODE
     ////
 
-    delete _chatBot; 
+    // Debug
+    //std::cout << "got here 4: graphnode deconstructor, chatbot deleted" << std::endl;
+    // Removed this delete because it's already done in the chatlogic destructor
+    //delete _chatBot; 
 
     ////
     //// EOF STUDENT CODE

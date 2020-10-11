@@ -19,6 +19,7 @@ ChatLogic::ChatLogic()
 
     // create instance of chatbot
     _chatBot = new ChatBot("../images/chatbot.png");
+    std::cout << "got here 1: chatbot constructor " << std::endl;
 
     // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
     _chatBot->SetChatLogicHandle(this);
@@ -31,6 +32,8 @@ ChatLogic::~ChatLogic()
 {
     //// STUDENT CODE
     ////
+
+    std::cout << "got here 2: chatlogic deconstructor, chatbot deleted" << std::endl; 
 
     // delete chatbot instance
     delete _chatBot;
