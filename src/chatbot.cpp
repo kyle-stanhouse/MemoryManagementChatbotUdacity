@@ -15,7 +15,8 @@ ChatBot::ChatBot()
     _image = nullptr;
     _chatLogic = nullptr;
     _rootNode = nullptr;
-    std::cout << "got here: chatbot constructor w/out mem alloc" << std::endl;
+    //Debug
+    //std::cout << "got here: chatbot constructor w/out mem alloc" << std::endl;
 }
 
 // constructor WITH memory allocation
@@ -35,21 +36,79 @@ ChatBot::~ChatBot()
 {
     std::cout << "ChatBot Destructor" << std::endl;
 
+    // Debug
     std::cout << "got here: chatbot deconstructor, before _image is deleted: " << _image << std::endl;
-
-    //std::cout << _image << std::endl;
 
     // deallocate heap memory
     if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
     {
         delete _image;
         _image = NULL;
+        //Debug
         std::cout << "got here 3: chatbot deconstructor, image deleted" << std::endl;
     }
 }
 
 //// STUDENT CODE
-////
+//// Task 2: Make changes such that class Chatbot complies with the Rule of Five
+
+    ChatBot::ChatBot(const ChatBot &source) //copy constructor - constructor is overloaded ... is copy restricted to have no input parameter?
+    {
+        std::cout << "COPYING content of instance " << &source << " to instance " << this << std::endl;
+        // data handles (owned)
+        _image = source._image; // avatar image
+        // data handles (not owned)
+        _currentNode = source._currentNode;
+        _rootNode = source._rootNode;
+        _chatLogic = source._chatLogic;
+        
+    }
+
+    ChatBot& ChatBot::operator=(const ChatBot &source) // copy assignment operator
+    {
+        std::cout << "ASSIGNING content of instance " << &source << " to instance " << this << std::endl;
+        if (this == &source)
+            return *this;
+        // data handles (owned)
+        _image = source._image; // avatar image
+        // data handles (not owned)
+        _currentNode = source._currentNode;
+        _rootNode = source._rootNode;
+        _chatLogic = source._chatLogic;
+        return *this;
+    }
+
+    ChatBot::ChatBot(ChatBot &&source) // move constructor
+    {
+        std::cout << "MOVING (c’tor) instance " << &source << " to instance " << this << std::endl;
+        // data handles (owned)
+        _image = source._image; // avatar image
+        // data handles (not owned)
+        _currentNode = source._currentNode;
+        _rootNode = source._rootNode;
+        _chatLogic = source._chatLogic;
+
+        source._image = nullptr;
+        source._currentNode = nullptr;
+        source._rootNode = nullptr;
+        source._chatLogic = nullptr;
+    }
+
+    ChatBot& ChatBot::operator=(ChatBot &&source) //move assignment operator
+    {
+        std::cout << "MOVING (assign) instance " << &source << " to instance " << this << std::endl;
+        // data handles (owned)
+        _image = source._image; // avatar image
+        // data handles (not owned)
+        _currentNode = source._currentNode;
+        _rootNode = source._rootNode;
+        _chatLogic = source._chatLogic;
+
+        source._image = nullptr;
+        source._currentNode = nullptr;
+        source._rootNode = nullptr;
+        source._chatLogic = nullptr;
+    }
 
 ////
 //// EOF STUDENT CODE

@@ -15,7 +15,7 @@ GraphNode::~GraphNode()
 
     // Debug
     //std::cout << "got here 4: graphnode deconstructor, chatbot deleted" << std::endl;
-    // Removed this delete because it's already done in the chatlogic destructor
+    // Removed the following delete because it's already done in the chatbot destructor
     //delete _chatBot; 
 
     ////

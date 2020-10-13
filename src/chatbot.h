@@ -25,10 +25,16 @@ public:
     // constructors / destructors
     ChatBot();                     // constructor WITHOUT memory allocation
     ChatBot(std::string filename); // constructor WITH memory allocation
-    ~ChatBot();
+    ~ChatBot();                    // Destructor
 
     //// STUDENT CODE
-    ////
+    //// Task 2: Make changes such that class Chatbot complies with the Rule of Five
+
+    ChatBot(const ChatBot &source); //copy constructor
+    ChatBot &operator=(const ChatBot &source); // copy assignment operator
+    ChatBot(ChatBot &&source); // move constructor
+    ChatBot &operator=(ChatBot &&source); //move assignment operator
+
 
     ////
     //// EOF STUDENT CODE

@@ -33,6 +33,10 @@ string
 /home/parallels/OpenStreetMapUdacity/CppND-Memory-Management-Chatbot/src/chatgui.h
 wx/wx.h
 -
+chatlogic.h
+/home/parallels/OpenStreetMapUdacity/CppND-Memory-Management-Chatbot/src/chatlogic.h
+memory
+-
 
 /home/parallels/OpenStreetMapUdacity/CppND-Memory-Management-Chatbot/src/chatlogic.h
 vector
@@ -46,14 +50,6 @@ chatgui.h
 vector
 -
 string
--
-
-/home/parallels/OpenStreetMapUdacity/CppND-Memory-Management-Chatbot/src/graphnode.cpp
-graphedge.h
-/home/parallels/OpenStreetMapUdacity/CppND-Memory-Management-Chatbot/src/graphedge.h
-graphnode.h
-/home/parallels/OpenStreetMapUdacity/CppND-Memory-Management-Chatbot/src/graphnode.h
-iostream
 -
 
 /home/parallels/OpenStreetMapUdacity/CppND-Memory-Management-Chatbot/src/graphnode.h
