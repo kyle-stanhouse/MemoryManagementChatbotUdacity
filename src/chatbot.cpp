@@ -15,8 +15,7 @@ ChatBot::ChatBot()
     _image = nullptr;
     _chatLogic = nullptr;
     _rootNode = nullptr;
-    //Debug
-    //std::cout << "got here: chatbot constructor w/out mem alloc" << std::endl;
+
 }
 
 // constructor WITH memory allocation
