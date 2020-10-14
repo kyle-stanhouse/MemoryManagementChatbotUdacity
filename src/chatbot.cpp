@@ -36,7 +36,7 @@ ChatBot::~ChatBot()
     std::cout << "ChatBot Destructor" << std::endl;
 
     // Debug
-    std::cout << "got here: chatbot deconstructor, before _image is deleted: " << _image << std::endl;
+    //std::cout << "got here: chatbot deconstructor, before _image is deleted: " << _image << std::endl;
 
     // deallocate heap memory
     if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
@@ -44,7 +44,7 @@ ChatBot::~ChatBot()
         delete _image;
         _image = NULL;
         //Debug
-        std::cout << "got here 3: chatbot deconstructor, image deleted" << std::endl;
+        //std::cout << "got here 3: chatbot deconstructor, image deleted" << std::endl;
     }
 }
 
@@ -120,6 +120,7 @@ void ChatBot::ReceiveMessageFromUser(std::string message)
 
     for (size_t i = 0; i < _currentNode->GetNumberOfChildEdges(); ++i)
     {
+        //GraphEdge *edge = _currentNode->GetChildEdgeAtIndex(i);
         GraphEdge *edge = _currentNode->GetChildEdgeAtIndex(i);
         for (auto keyword : edge->GetKeywords())
         {

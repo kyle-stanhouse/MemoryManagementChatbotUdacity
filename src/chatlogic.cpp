@@ -20,7 +20,7 @@ ChatLogic::ChatLogic()
 
     // create instance of chatbot
     _chatBot = new ChatBot("../images/chatbot.png");
-    std::cout << "got here 1: chatbot constructor " << std::endl;
+    //std::cout << "got here 1: chatbot constructor " << std::endl;
 
     // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
     _chatBot->SetChatLogicHandle(this);
@@ -34,9 +34,6 @@ ChatLogic::~ChatLogic()
     //// STUDENT CODE
     //// Task 3: Adapt node vector such that nodes are exclusively owned by class ChatLogic -
     //           deleted 'delete' after switch to unique pointer
-
-    //Debug
-    std::cout << "got here 2: chatlogic deconstructor, chatbot deleted" << std::endl; 
 
     // delete chatbot instance
     delete _chatBot;
@@ -182,7 +179,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
                             edge->SetChildNode((*childNode).get());
                             edge->SetParentNode((*parentNode).get());
-                            _edges.push_back(edge);
+                            //_edges.push_back(edge);
+                            //_edges.push_back(std::move(edge));
 
                             // find all keywords for current node
                             AddAllTokensToElement("KEYWORD", tokens, *edge);
