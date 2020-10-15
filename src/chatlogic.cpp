@@ -240,12 +240,15 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
     //Local instance of chatbot
     ChatBot chatBot("../images/chatbot.png");
-    //_chatBot->SetChatLogicHandle(this);
-    _chatBot = &chatBot;
+    //Set _chatBot member variable of Chatlogic
+    //_chatBot = &chatBot;
+    SetChatbotHandle(&chatBot);
+    //Set _chatlog member variable of ChatBot
     _chatBot->SetChatLogicHandle(this);
-    SetChatbotHandle(_chatBot);
+    //
+    //SetChatbotHandle(_chatBot);
 
-        // add chatbot to graph root node
+    // add chatbot to graph root node
     _chatBot->SetRootNode(rootNode);
 
     //Move chatbot into rootNode
