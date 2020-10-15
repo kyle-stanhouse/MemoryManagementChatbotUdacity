@@ -19,8 +19,8 @@ ChatLogic::ChatLogic()
     ////
 
     // create instance of chatbot
-    _chatBot = new ChatBot("../images/chatbot.png");
-    //std::cout << "got here 1: chatbot constructor " << std::endl;
+    // Removed to accomodate stack instance of chatbot that get's passed to nodes
+    //_chatBot = new ChatBot("../images/chatbot.png");
 
     // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
     _chatBot->SetChatLogicHandle(this);
@@ -36,7 +36,7 @@ ChatLogic::~ChatLogic()
     //           deleted 'delete' after switch to unique pointer
 
     // delete chatbot instance
-    delete _chatBot;
+    //delete _chatBot;
 
     // delete all nodes
     /*
@@ -214,19 +214,20 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
     //// STUDENT CODE
     //// Task 3: Adapt node vector such that nodes are exclusively owned by class ChatLogic
-
+    //// Task 5:
+    
     // identify root node
     GraphNode *rootNode = nullptr;
+
     for (auto it = std::begin(_nodes); it != std::end(_nodes); ++it)
     {
         // search for nodes which have no incoming edges
         if ((*it)->GetNumberOfParents() == 0)
         {
-
             if (rootNode == nullptr)
             {
                 //rootNode = *it; // assign current node to root
-                rootNode = (*it).get(); // assign current node to root
+                rootNode = (*it).get(); // assign current node to root, changed to accomodate nodes transfer to unique pointer
             }
             else
             {
@@ -237,7 +238,13 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
     // add chatbot to graph root node
     _chatBot->SetRootNode(rootNode);
-    rootNode->MoveChatbotHere(_chatBot);
+
+    //Local instance of chatbot
+    ChatBot chatBot("../images/chatbot.png");
+
+    //Move chatbot into rootNode
+    //rootNode->MoveChatbotHere(_chatBot);
+    rootNode->MoveChatbotHere(std::move(chatBot));
     
     ////
     //// EOF STUDENT CODE

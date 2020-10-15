@@ -35,16 +35,11 @@ ChatBot::~ChatBot()
 {
     std::cout << "ChatBot Destructor" << std::endl;
 
-    // Debug
-    //std::cout << "got here: chatbot deconstructor, before _image is deleted: " << _image << std::endl;
-
     // deallocate heap memory
     if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
     {
         delete _image;
         _image = NULL;
-        //Debug
-        //std::cout << "got here 3: chatbot deconstructor, image deleted" << std::endl;
     }
 }
 

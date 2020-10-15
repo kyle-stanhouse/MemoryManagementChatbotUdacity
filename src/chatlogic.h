@@ -17,11 +17,13 @@ class ChatLogic
 private:
     //// STUDENT CODE
     //// Task 3: Adapt node vector such that nodes are exclusively owned by class ChatLogic
-    //// Task 4: 
+    //// Task 4: Transfer ownership of Graph edges to GraphNode
 
     // data handles (owned)
     //std::vector<GraphNode *> _nodes;
     std::vector<std::unique_ptr<GraphNode>> _nodes;
+
+    // Removed due to ownership transfer to GraphNode
     //std::vector<GraphEdge *> _edges;
     //std::vector<std::unique_ptr<GraphEdge>> _edges;
 

@@ -14,7 +14,7 @@ class GraphNode
 {
 private:
     //// STUDENT CODE
-    //// Task 4: 
+    //// Task 4: Change ownership of GraphEdge instances to GraphNode instances
 
     // data handles (owned)
     //std::vector<GraphEdge *> _childEdges;  // edges to subsequent nodes
@@ -52,7 +52,8 @@ public:
     //// STUDENT CODE
     ////
 
-    void MoveChatbotHere(ChatBot *chatbot);
+    //void MoveChatbotHere(ChatBot *chatbot);
+    void MoveChatbotHere(ChatBot chatbot);
 
     ////
     //// EOF STUDENT CODE
