@@ -116,14 +116,10 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
     wxInitAllImageHandlers();
 
     //// STUDENT CODE
-    //// Task 1: Make _chatLogic and exclusive resource to ChatBotPanelDialog using a smart pointer
+    //// Task 1: Make _chatLogic an exclusive resource to ChatBotPanelDialog using a smart pointer
 
-    // (3) raw pointer from shared (or unique) pointer   
-    //int *rawPtr = sharedPtr2.get();
     //create chat logic instance
-    //_chatLogic = new ChatLogic(); 
-    //_chatLogic(new ChatLogic());
-    //std::unique_ptr<ChatLogic> _chatLogic(new ChatLogic);
+    //_chatLogic = new ChatLogic();
 
     _chatLogic = std::make_unique<ChatLogic>();
 

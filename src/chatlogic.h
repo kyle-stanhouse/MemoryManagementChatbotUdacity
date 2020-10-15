@@ -25,7 +25,6 @@ private:
 
     // Removed due to ownership transfer to GraphNode
     //std::vector<GraphEdge *> _edges;
-    //std::vector<std::unique_ptr<GraphEdge>> _edges;
 
     ////
     //// EOF STUDENT CODE

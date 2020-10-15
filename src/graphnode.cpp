@@ -12,10 +12,8 @@ GraphNode::GraphNode(int id)
 GraphNode::~GraphNode()
 {
     //// STUDENT CODE
-    ////
+    //// Warm-up task
 
-    // Debug
-    //std::cout << "got here 4: graphnode deconstructor, chatbot deleted" << std::endl;
     // Removed the following delete because it's already done in the chatbot destructor
     //delete _chatBot; 
 
@@ -37,11 +35,12 @@ void GraphNode::AddEdgeToParentNode(GraphEdge *edge)
 void GraphNode::AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge)
 {
     //_childEdges.push_back(edge);
-    _childEdges.push_back(std::move(edge));
+    _childEdges.push_back(std::move(edge)); // Task 4: edgss are now owned by GraphNode (out-going)
 }
 
 //// STUDENT CODE
-////
+//// Task 5: Accomodate moving Chatbot
+
 //void GraphNode::MoveChatbotHere(ChatBot *chatbot)
 void GraphNode::MoveChatbotHere(ChatBot chatbot)
 {
@@ -63,7 +62,7 @@ void GraphNode::MoveChatbotToNewNode(GraphNode *newNode)
 GraphEdge *GraphNode::GetChildEdgeAtIndex(int index)
 {
     //// STUDENT CODE
-    ////
+    //// Task 4: Edges are now owned by GraphNode (out-going)
 
     //return _childEdges[index];
     return _childEdges[index].get();

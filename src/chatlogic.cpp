@@ -214,7 +214,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
     //// STUDENT CODE
     //// Task 3: Adapt node vector such that nodes are exclusively owned by class ChatLogic
-    //// Task 5:
+    //// Task 5: Moving the ChatBot
     
     // identify root node
     GraphNode *rootNode = nullptr;
@@ -240,13 +240,13 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
     //Local instance of chatbot
     ChatBot chatBot("../images/chatbot.png");
+
     //Set _chatBot member variable of Chatlogic
     //_chatBot = &chatBot;
     SetChatbotHandle(&chatBot);
+
     //Set _chatlog member variable of ChatBot
     _chatBot->SetChatLogicHandle(this);
-    //
-    //SetChatbotHandle(_chatBot);
 
     // add chatbot to graph root node
     _chatBot->SetRootNode(rootNode);

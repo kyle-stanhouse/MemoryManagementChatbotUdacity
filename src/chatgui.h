@@ -20,7 +20,6 @@ private:
     // 
 
     //ChatLogic *_chatLogic;
-    //std::auto _chatLogic;
     std::unique_ptr<ChatLogic> _chatLogic;
 
     ////
