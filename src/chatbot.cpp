@@ -50,7 +50,8 @@ ChatBot::~ChatBot()
     {
         std::cout << "COPYING content of instance " << &source << " to instance " << this << std::endl;
         // data handles (owned)
-        _image = source._image; // avatar image
+        //_image = source._image; // avatar image
+        _image = new wxBitmap(*source._image); // avatar image
         // data handles (not owned)
         _currentNode = source._currentNode;
         _rootNode = source._rootNode;
@@ -64,11 +65,13 @@ ChatBot::~ChatBot()
         if (this == &source)
             return *this;
         // data handles (owned)
-        _image = source._image; // avatar image
+        //_image = source._image; // avatar image
+        _image = new wxBitmap(*source._image); // avatar image
         // data handles (not owned)
         _currentNode = source._currentNode;
         _rootNode = source._rootNode;
         _chatLogic = source._chatLogic;
+
         return *this;
     }
 
@@ -76,8 +79,8 @@ ChatBot::~ChatBot()
     {
         std::cout << "MOVING (c’tor) instance " << &source << " to instance " << this << std::endl;
         // data handles (owned)
-        //_image = source._image; // avatar image
-        _image = new wxBitmap(*source._image); // avatar image
+        _image = source._image; // avatar image
+        //_image = new wxBitmap(*source._image); // avatar image
         // data handles (not owned)
         _currentNode = source._currentNode;
         _rootNode = source._rootNode;
@@ -95,8 +98,8 @@ ChatBot::~ChatBot()
     {
         std::cout << "MOVING (assign) instance " << &source << " to instance " << this << std::endl;
         // data handles (owned)
-        //_image = source._image; // avatar image
-        _image = new wxBitmap(*source._image); // avatar image
+        _image = source._image; // avatar image
+        //_image = new wxBitmap(*source._image); // avatar image
         // data handles (not owned)
         _currentNode = source._currentNode;
         _rootNode = source._rootNode;
